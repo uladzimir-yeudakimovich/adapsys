@@ -1,0 +1,15 @@
+.container {
+  margin-top: 50px;
+}
+
+.row {
+  align-items: center !important;
+  margin: 10px 0 !important;
+  border-bottom: 1px solid #ddd !important;
+  padding-bottom: 10px;
+}
+
+.col-1, .col-2, .col-3 {
+  padding: 0 !important;
+  box-shadow: none !important;
+}

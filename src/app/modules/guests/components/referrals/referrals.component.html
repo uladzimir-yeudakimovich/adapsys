@@ -1,0 +1,36 @@
+<table class="table">
+   <thead>
+      <tr>
+         <th>{{'field.name' | translate}}</th>
+         <th>{{'field.code' | translate}}</th>
+         <th></th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr data-id="-1">
+         <td><input class="form-control" type="text" [(ngModel)]="this.model.name" placeholder="{{'field.name' | translate}}"></td>
+         <td><input class="form-control" type="text" [(ngModel)]="this.model.code" placeholder="{{'field.code' | translate}}"></td>
+         <td class="text-right">
+            <button type="button" class="btn btn-outline-success" (click)="this.createReferral()">{{'guests.add-new-referral' | translate}}</button>
+         </td>
+      </tr>
+      <tr *ngFor="let referral of this.data">
+         <td>
+            <span class="guestReferralView">{{referral['name']}}</span>
+            <input type="text" class="form-control guestReferralEdit" name="name" value="{{referral['name']}}" placeholder="{{'field.name' | translate}}" style="display: none;">
+         </td>
+         <td>
+            <span class="guestReferralView">{{referral['code']}}</span>
+            <input type="text" class="form-control guestReferralEdit" name="code" value="{{referral['code']}}" placeholder="{{'field.code' | translate}}" style="display: none;">
+         </td>
+         <td class="text-right">
+            <div class="btn-group" role="group">
+               <button type="button" class="btn btn-outline-primary">{{'button.edit' | translate}}</button>
+               <button type="button" class="btn btn-outline-danger">{{'button.delete' | translate}}</button>
+               <button type="button" class="btn btn-outline-danger" style="display: none;">{{'button.cancel' | translate}}</button>
+               <button type="button" class="btn btn-outline-success" style="display: none;">{{'button.save' | translate}}</button>
+            </div>
+         </td>
+      </tr>
+   </tbody>
+</table>

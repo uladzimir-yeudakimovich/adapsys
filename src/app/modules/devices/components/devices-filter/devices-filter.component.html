@@ -1,0 +1,26 @@
+<div class="row">
+   <div class="col-md-2">
+      <label>Wi-Fi MAC
+         <br>
+         <input type="text" [(ngModel)]="this.model.mac" class="form-control">
+      </label>
+   </div>
+   <div class="col-md-1">
+      <label>{{'common.room' | translate}}
+         <br>
+         <input type="text" [(ngModel)]="this.model.room" class="form-control">
+      </label>
+   </div>
+   <div class="col-md-2">
+      <label>{{'devices.checkout-date' | translate}}
+         <br>
+         <input type="text" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()" [(ngModel)]="this.model.date" class="form-control">
+         <i class="fa fa-calendar"></i>
+      </label>
+   </div>
+   <div class="col-md-6 pt-4">
+      <button class="btn btn-outline-secondary" (click)="this.reset()">{{'button.reset' | translate}}</button>
+      <button class="btn btn-outline-secondary" (click)="this.filter()">{{'button.filter' | translate}}</button>
+      <button class="btn btn-outline-secondary" (click)="this.today()">{{'button.today-checkout' | translate}}</button>
+   </div>
+</div>

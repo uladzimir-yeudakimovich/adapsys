@@ -1,0 +1,23 @@
+@import 'variables.scss';
+
+a.nav-link, a.nav-link:hover {
+	color: $navigation_link_color;
+	font-size: 18px;
+	padding: 0.3rem 1rem;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+	background-color: $navigation_link_hover_background;
+	color: $navigation_link_hover_color;
+}
+
+.nav {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.badge {
+	float: right;
+	border-radius: 11px;
+    padding: 0.4em 0.8em;
+}

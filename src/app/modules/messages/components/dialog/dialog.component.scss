@@ -1,0 +1,31 @@
+.dialog-header > div {
+	display: inline-block;
+}
+
+.dialog-header-name {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.dialog-header-room {
+	color: #b3b3b3;
+	font-size: 23px;
+	padding-left: 20px;
+}
+
+.dialog-actions .dropdown-toggle::after {
+	display: none;
+}
+
+.dialog-body {
+	overflow-y: scroll;
+}
+
+.button-send-wrap {
+	padding-left: 0px;
+    margin-left: 0px;
+}
+
+textarea {
+	width: 100%;
+}

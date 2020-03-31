@@ -1,0 +1,56 @@
+<div class="dialog-header">
+   <div class="dialog-header-name">{{(this.currentDialog['name'] | multilang) | replace:'('+this.currentDialog['room']+')':'' }}</div>
+   <div class="dialog-header-room">{{this.currentDialog['room']}}</div>
+</div>
+<div class="dialog-body" #messagesWrap (scroll)="this.onScroll()">
+   <message *ngFor="let message of this.messages" [data]="message"></message>
+</div>
+<div id="message-form">
+   <hr>
+   <div class="row pb-2">
+      <div class="col-md-2" style="padding-right: 0;">
+         <span>Send as: *</span>
+      </div>
+      <div class="col-md-4">
+         <select *ngIf="this.contacts.length !== 1" class="form-control" [(ngModel)]="this.model.contact" id="detailsContact">
+            <option *ngFor="let contact of this.contacts" value="{{contact['_id']}}">{{contact['name'] | multilang}}</option>
+         </select>
+         <div *ngIf="this.contacts.length === 1" class="form-control">
+            <div>{{this.contacts[0]['name'] | multilang}}</div>
+         </div>
+      </div>
+      <div class="col-md-3">
+         <select class="form-control" placeholder="Place">
+            <option></option>
+            <option *ngFor="let place of this.places" value="{{place['_id']}}">{{place['name'] | multilang}}</option>
+         </select>
+      </div>
+      <div class="col-md-3">
+         <div class="custom-control custom-checkbox">
+           <input type="checkbox" class="custom-control-input" id="silent_mode">
+           <label class="custom-control-label" for="silent_mode">Silent mode</label>
+         </div>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-1">
+         <div class="dropdown dialog-actions">
+           <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <i class="fa fa-plus-square-o"></i>
+           </button>
+           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+             <a class="dropdown-item" href="#">Add image</a>
+             <a class="dropdown-item" href="#">Add location</a>
+           </div>
+         </div>
+      </div>
+      <div class="col-md-10">
+         <div style="overflow: hidden; position:relative;">
+            <textarea placeholder="Write a message" class="form-control" [(ngModel)]="this.model.message"></textarea>
+         </div>
+      </div>
+      <div class="col-md-1 button-send-wrap">
+         <button class="btn btn-primary" (click)="this.sendMessage()"><i class="fa fa-paper-plane"></i></button>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,22 @@
+[ngbdropdownmenu] {
+	.dropdown-item:focus {
+		outline: none !important;
+	}
+
+	.dropdown-item:hover {
+		background-color: $hover_background_color !important;
+	}
+
+	.dropdown-item.active,
+	.dropdown-item:active {
+		background-color: $primary_color !important;
+	}
+
+	.dropdown-item {
+		cursor: pointer;
+	}
+}
+
+[ngbdropdown][hidden] {
+	display: none !important;
+}

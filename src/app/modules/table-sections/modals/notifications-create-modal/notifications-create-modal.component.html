@@ -1,0 +1,66 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-6">
+            <span>Отправить от кого:</span>
+            <select class="form-control" [(ngModel)]="this.model.contact">
+               <option *ngFor="let contact of this.contacts" value="{{contact._id}}">{{contact.name | multilang}}</option>
+            </select>
+         </div>
+         <div class="col-md-6">
+            <span>Место:</span>
+            <select class="form-control" [(ngModel)]="this.model.place">
+               <option></option>
+               <option *ngFor="let place of this.places" value="{{place._id}}">{{place.name | multilang}}</option>
+            </select>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <span>Комнаты:</span>
+            <input type="text" class="form-control" [(ngModel)]="this.model.room_n" (keyup)="this.updateGuests()" placeholder="Room number">
+            <label>
+               <span class="text-info">формат: 1,3-5</span>
+            </label>
+         </div>
+         <div class="col-md-6">
+            <select class="form-control mt-4" [(ngModel)]="this.model.guest">
+               <option value="">All</option>
+               <option *ngFor="let guest of this.guests" value="{{guest._id}}">{{guest['name']}} {{guest['surname']}}</option>
+            </select>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6 mt-2 mb-2">
+         	<multilang-form [form]="this.multilangForm.form" [(data)]="this.multilangForm.data"></multilang-form>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <form>
+               <div class="input-group">
+                  <div class="custom-file">
+                     <input type="file" name="mediaName" class="custom-file-input" id="mediaName">
+                     <label class="custom-file-label" for="mediaName">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                     <button class="btn btn-outline-secondary ajax_upload" type="button">Загрузить</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+         <div class="col-md-4">
+            <img class="thumb" id="uploadedImage" src="/static/images/no_icon.gif">
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">Бесшумный режим
+            <input type="checkbox" name="silent_mode" [(ngModel)]="this.model.silent_mode">
+         </div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="this.save(c)">{{'button.send' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.cancel' | translate}}</button>
+   </div>
+</ng-template>

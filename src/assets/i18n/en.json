@@ -1,0 +1,132 @@
+{
+	"section": {
+		"tasks": "Tasks",
+		"messages": "Messages",
+		"notifications": "Notifications",
+		"orders": "Food, items, services orders",
+		"clean-requests": "Clean requests",
+		"breakdowns": "Equipment malfunction requests",
+		"wakeup-requests": "Wake Up Call Requests",
+		"dayplanner": "Dayplanner data",
+		"reservation": "Reservation",
+		"payments": "Payments",
+		"taxi-requests": "Taxi requests",
+		"rooms": "Rooms",
+		"tablets": "Tablets",
+		"guests": "Guests",
+		"promotions": "Promotions",
+		"logs": "Logs",
+		"stats": "Stats"
+	},
+	"tabs": {
+		"all": "All",
+		"new": "New",
+		"accepted": "Accepted",
+		"completed": "Completed",
+		"rejected": "Rejected",
+		"urgent": "Urgent",
+		"actual": "Actual",
+		"old": "Old"
+	},
+	"pagination": {
+		"of": "of",
+		"results": "Results"
+	},
+	"tasks": {
+		"add-task": "Add task"
+	},
+	"button": {
+		"reset": "Reset",
+		"filter": "Filter",
+		"today-checkout": "Today checkout",
+		"cancel": "Cancel",
+		"save": "Save",
+		"close": "Close",
+		"update": "Update",
+		"send": "Send",
+		"apply": "Apply",
+		"ok": "OK",
+		"edit": "Edit",
+		"add": "Add",
+		"delete": "Delete"
+	},
+	"devices": {
+		"checkout-date": "Checkout date",
+		"assign": "Assign",
+		"assigned": "Assigned",
+		"unassigned": "Unassigned"
+	},
+	"common": {
+		"room": "Room",
+		"all": "All",
+		"guest": "Guest",
+		"today": "Today",
+		"period": "Period"
+	},
+	"guests": {
+		"assign-tablet": "Assign tablet",
+		"guests": "Guests",
+		"guests-types": "Guests types",
+		"guests-referrals": "Guests referrals",
+		"add-guest": "Add Guest",
+		"edit-guest": "Edit Guest",
+		"guest-type": "Guest type",
+		"add-new-referral": "Add new referral",
+		"add-new-type": "Add new type"
+	},
+	"field": {
+		"name": "Name",
+		"surname": "Surname",
+		"date-from": "Date from",
+		"date-to": "Date to",
+		"confirmation-code": "Confirm. Code",
+		"referral": "Referral",
+		"language": "Language",
+		"birthdate": "Birthdate",
+		"married": "Married",
+		"with_kids": "With kids",
+		"count_adults": "Adults",
+		"count_children": "Children",
+		"count_babies": "Babies",
+		"mobile": "Mobile",
+		"email": "Email",
+		"room": "Room",
+		"received": "Received",
+		"reservation-date": "Reservation Date",
+		"time-zone": "Time Zone",
+		"place": "Place",
+		"persons-number": "Persons number",
+		"status": "Status",
+		"urgent": "Urgent",
+		"equipment": "Equipment",
+		"time-cleaning": "Time Cleaning",
+		"date-order": "Date Order",
+		"title": "Title",
+		"guest": "Guest",
+		"referral-code": "Referral / Code",
+		"date": "Date",
+		"reason": "Reason",
+		"action": "Action",
+		"content": "Content",
+		"amount": "Amount",
+		"API": "API",
+		"items-type": "Items Type",
+		"items-payment-id": "Items payment ID",
+		"time": "Time",
+		"when-needed": "When needed",
+		"address": "Address",
+		"wake-up-call-time": "Wake up Call Time",
+		"description": "Description",
+		"balance": "Balance",
+		"code": "Code",
+		"empty-field": "",
+		"number": "Number",
+		"type": "Type"
+	},
+	"notifications": {
+		"new-notification": "New notification"
+	},
+	"rooms": {
+		"add-new-room": "Add new room"
+	}
+}

@@ -1,0 +1,10 @@
+<div ngbDropdown class="dropdown dropleft">
+  <button ngbDropdownToggle class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div [className]="'lang_'+this.currentLanguage"></div>
+  </button>
+  <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a *ngFor="let lang of languages" class="dropdown-item" (click)="setLanguage(lang)">
+      <div [className]="'lang_'+lang"></div>
+    </a>
+  </div>
+</div>

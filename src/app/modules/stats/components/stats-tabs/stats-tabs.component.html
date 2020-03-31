@@ -1,0 +1,31 @@
+<ngb-tabset (tabChange)="beforeTabChange($event)">
+  <ngb-tab title="Data">
+    <ng-template ngbTabContent>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Count</th>
+            <th>Guest</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entity of this.data">
+            <td>{{entity['_id']}}</td>
+            <td>{{entity['guests']}}</td>
+            <td>{{entity['value']}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Diagram" id="tab-diagram">
+    <ng-template ngbTabContent>
+      <ngx-charts-pie-chart
+        [view]="this.diagram.view"
+        [results]="this.diagram.data"
+        [labels]="this.diagram.showLabels">
+      </ngx-charts-pie-chart>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

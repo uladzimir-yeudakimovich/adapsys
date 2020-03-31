@@ -1,0 +1,50 @@
+<app-devices-modal #modal (onClose)="this.updateDevices()"></app-devices-modal>
+<app-devices-details-modal #modalDetails></app-devices-details-modal>
+
+<div class="row mt-2 mb-2">
+   <div class="col-md-12">
+      <h3>{{this.title | translate}}</h3>
+   </div>
+   <div class="col-md-12">
+      <app-devices-filter (onApply)="apply($event)"></app-devices-filter>
+
+      <ul class="nav nav-tabs" role="tablist">
+         <li class="nav-item" id="all">
+            <a class="nav-link" [className]="'nav-link ' + (this.isCurrentTab('all') ? 'active' : '')" (click)="this.setTab('all')" role="tab">{{'common.all' | translate}}</a>
+         </li>
+         <li class="nav-item" id="unassigned">
+            <a class="nav-link"  [className]="'nav-link ' + (this.isCurrentTab('unassigned') ? 'active' : '')" (click)="this.setTab('unassigned')" role="tab">{{'devices.unassigned' | translate}}</a>
+         </li>
+         <li class="nav-item" id="assigned">
+            <a class="nav-link"  [className]="'nav-link ' + (this.isCurrentTab('assigned') ? 'active' : '')" (click)="this.setTab('assigned')" role="tab">{{'devices.assigned' | translate}}</a>
+         </li>
+      </ul>
+
+      <table class="table table-hover">
+         <thead>
+            <tr>
+               <th>Wi-Fi MAC</th>
+               <th>{{'field.room' | translate}}/PID</th>
+               <th>{{'devices.checkout-date' | translate}}</th>
+               <th>{{'field.action' | translate}}</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let device of this.data" (click)="this.openDetailsModal(device, $event)">
+               <td>
+                  {{device["device_wifi_mac"]}}
+               </td>
+               <td>
+                  {{(device['name'] ? device["room"]+'/'+device["name"] : 'not assigned')}}
+               </td>
+               <td>
+                  {{device["guest_checkout"] | date}}
+               </td>
+               <td>
+                  <button type="button" class="btn btn-outline-primary" (click)="this.openModal(device)">{{'devices.assign' | translate}}</button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>

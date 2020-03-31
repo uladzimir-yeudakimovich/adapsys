@@ -1,0 +1,56 @@
+<div class="row filterControls" style="margin-left:0;">
+   <div class="col-md-2">
+      <div class="form-group row">
+         <label for="lang_select" class="col-sm-6 col-form-label">Language:</label>
+         <div class="col-sm-6">
+            <select [(ngModel)]="this.model.language" class="form-control" id="lang_select">
+               <option value="">All</option>
+               <option *ngFor="let langCode of this.languages | keys" value="{{langCode}}">{{this.languages[langCode]}}</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-4">
+      <div class="form-group row">
+         <label for="date_from_input" class="col-sm-2 col-form-label">From:</label>
+         <div class="col-sm-4">
+            <input type="text" [(ngModel)]="this.model.date_from" id="date_from_input" class="form-control">
+         </div>
+         <label for="date_to_input" class="col-sm-2 col-form-label">To:</label>
+         <div class="col-sm-4">
+            <input type="text" [(ngModel)]="this.model.date_to" id="date_to_input" class="form-control">
+         </div>
+      </div>
+   </div>
+   <div class="col-md-2">
+      <div class="form-group row">
+         <label for="ipp_input" class="col-sm-3 col-form-label">Show:</label>
+         <div class="col-sm-6">
+            <select [(ngModel)]="this.model.ipp" id="ipp_input" class="form-control">
+               <option value="10">10</option>
+               <option value="20">20</option>
+               <option value="50">50</option>
+               <option value="100">100</option>
+            </select>
+         </div>
+         <label for="ipp_input" class="col-sm-3 col-form-label">items</label>
+      </div>
+   </div>
+   <div class="col-md-2">
+      <div class="form-group row">
+         <label for="sort_input" class="col-sm-4 col-form-label">
+            Sort by:
+         </label>
+         <div class="col-sm-5">
+            <select [(ngModel)]="this.model.sort" id="sort_input" class="form-control">
+               <option value="value">Count</option>
+               <option value="guests">Guests</option>
+            </select>
+         </div>
+         <label for="sort_input" class="col-sm-3 col-form-label">items</label>
+      </div>
+   </div>
+   <div class="col-md-1">
+      <button (click)="this.apply()" class="btn btn-light">{{'button.filter' | translate }}</button>
+   </div>
+</div>

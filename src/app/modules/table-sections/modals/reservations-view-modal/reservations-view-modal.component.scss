@@ -1,0 +1,18 @@
+.table-form-data {
+	width: 100%;
+}
+
+.table-form-data td {
+    word-break: break-all;
+    padding: 0.35rem;
+}
+
+.table-form-data td:first-child {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+[role="tabpanel"],
+.modal-body {
+	overflow: hidden;
+}

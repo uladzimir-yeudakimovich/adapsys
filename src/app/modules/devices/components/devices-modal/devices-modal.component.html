@@ -1,0 +1,31 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <legend>{{'guests.assign-tablet' | translate}}</legend>
+      <div class="row">
+         <div class="col-md-6">
+            <div class="form-group">
+               <label for="roomId">{{'common.room' | translate}}</label><br>
+               <select  id="roomId" class="form-control" [(ngModel)]="this.model.room" (change)="this.updateGuests()">
+                  <option value=""></option>
+                  <option *ngFor="let room of this.rooms" value="{{room['_id']}}">{{room['number']}}</option>
+               </select>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div class="form-group">
+               <label for="guestId">{{'common.guest' | translate}}</label>
+               <select id="guestId" [(ngModel)]="this.model.guest" class="form-control">
+                  <option value="">No guest</option>
+                  <option *ngFor="let guest of this.guests" value="{{guest['_id']}}">{{guest['name']}} {{guest['surname']}}</option>
+               </select>
+            </div>
+         </div>
+      </div>
+      <!-- f-row -->
+   </div>
+   <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="this.save(c)">{{'button.save' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.cancel' | translate}}</button>
+   </div>
+   <!-- f-actions -->
+</ng-template>

@@ -1,0 +1,65 @@
+<app-promotions-new-modal #newModal (onClose)="this.update()"></app-promotions-new-modal>
+<app-promotions-details-modal #detailsModal></app-promotions-details-modal>
+<app-promotions-send-modal #sendModal></app-promotions-send-modal>
+
+<div class="row mt-2 mb-2">
+	<div class="col-md-6">
+		<h3>{{this.title | translate}}</h3>
+	</div>
+	<div class="col-md-6">
+		<span class="btn btn-primary mr-1" (click)="this.showModalCreate()" style="float: right;">Add new promotion</span>
+		<!--<span class="btn btn-primary mr-1" style="display:none;">Cancel</span>-->
+		<!--<span class="btn btn-primary mr-1" style="display:none;">Save</span>-->
+	</div>
+	<div class="col-md-12">
+		<div id="itemlist">
+			<div class="container" *ngIf="this.promotions.length === 0">
+				<div class="row">
+					<div class="col-1">
+						<input type="checkbox">
+					</div>
+					<div class="col-2">
+						<img [src]="" alt="" width="100px" height="100px">
+					</div>
+					<div class="col-3">
+						<h3></h3>
+					</div>
+					<div class="col-2">
+						<span style="color:gray;"></span>
+						<p class="place-description"></p>
+					</div>
+					<div class="col-2">
+						<i>Active up to</i>
+					</div>
+					<div class="col-2">
+						<span class="btn btn-outline-secondary float-right">Send</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="container" *ngIf="this.promotions.length !== 0">
+				<div class="row" *ngFor="let promo of this.promotions" (click)="this.showModalDetails(promo['id'])">
+					<div class="col-1">
+						<input type="checkbox">
+					</div>
+					<div class="col-2">
+						<img [src]="promo['image'] ? promo['image'] : promo['thumb']" alt="" width="100px" height="100px">
+					</div>
+					<div class="col-3">
+						<h3>{{promo['title'] | multilang}}</h3>
+					</div>
+					<div class="col-2">
+						<span style="color:gray;">{{promo['subtitle'] | multilang}}</span>
+						<p class="place-description">{{promo['description'] | multilang}}</p>
+					</div>
+					<div class="col-2">
+						<i>Active up to {{promo['expiry_date'] | date}}</i>
+					</div>
+					<div class="col-2">
+						<span class="btn btn-outline-secondary float-right" (click)="this.showModalSend(promo['id'])">Send</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,132 @@
+{
+	"section": {
+		"tasks": "Задачи",
+		"messages": "Сообщения",
+		"notifications": "Уведомления",
+		"orders": "Заказы продуктов, товаров, услуг",
+		"clean-requests": "Запросы на уборку",
+		"breakdowns": "Запросы неисправности оборудования",
+		"wakeup-requests": "Запросы на пробуждение",
+		"dayplanner": "Данные ежедневника",
+		"reservation": "Бронирование",
+		"payments": "Платежи",
+		"taxi-requests": "Запросы такси",
+		"rooms": "Комнаты",
+		"tablets": "Планшеты",
+		"guests": "Гости",
+		"promotions": "Акции",
+		"logs": "Логи",
+		"stats": "Статистика"
+	},
+	"tabs": {
+		"all": "Все",
+		"new": "Новые",
+		"accepted": "Принятые",
+		"completed": "Завершенные",
+		"rejected": "Отклоненные",
+		"urgent": "Важные",
+		"actual": "Актуальные",
+		"old": "Старые"
+	},
+	"pagination": {
+		"of": "из",
+		"results": "Показано"
+	},
+	"tasks": {
+		"add-task": "Добавить задачу"
+	},
+	"button": {
+		"reset": "Сброс",
+		"filter": "Фильтр",
+		"today-checkout": "Выписка за день",
+		"save": "Сохранить",
+		"cancel": "Отменить",
+		"close": "Закрыть",
+		"update": "Обновить",
+		"send": "Отправить",
+		"apply": "Применить",
+		"ok": "OK",
+		"edit": "Редактировать",
+		"add": "Добавить",
+		"delete": "Удалить"
+	},
+	"devices": {
+		"checkout-date": "Дата выписки",
+		"assign": "Назначить",
+		"assigned": "Назначенные",
+		"unassigned": "Неназначенные"
+	},
+	"common": {
+		"room": "Комната",
+		"all": "Все",
+		"guest": "Гость",
+		"today": "Сегодня",
+		"period": "Период"
+	},
+	"guests": {
+		"assign-tablet": "Назначить планшет",
+		"guests": "Гости",
+		"guests-types": "Типы гостей",
+		"guests-referrals": "Приглашенные рефералы",
+		"add-guest": "Добавить гостя",
+		"edit-guest": "Редактировать гостя",
+		"guest-type": "Тип гостя",
+		"add-new-referral": "Добавить нового реферала",
+		"add-new-type": "Добавить новый тип"
+	},
+	"field": {
+		"name": "Имя",
+		"surname": "Фамилия",
+		"date-from": "Дата, с",
+		"date-to": "Дата, по",
+		"confirmation-code": "Код подтверждения",
+		"referral": "Реферал",
+		"language": "Язык",
+		"birthdate": "Дата рождения",
+		"married": "В браке",
+		"with_kids": "С детьми",
+		"count_adults": "Взрослые",
+		"count_children": "Дети",
+		"count_babies": "Младенцы",
+		"mobile": "Мобильный",
+		"email": "Эл. почта",
+		"room": "Комната",
+		"received": "Получено",
+		"reservation-date": "Дата заказа",
+		"time-zone": "Часовой пояс",
+		"place": "Место",
+		"persons-number": "Количество людей",
+		"status": "Статус",
+		"urgent": "Важно",
+		"equipment": "Оборудование",
+		"time-cleaning": "Время уборки",
+		"date-order": "Дата заказа",
+		"title": "Заголовок",
+		"guest": "Гость",
+		"referral-code": "Реферал / код",
+		"date": "Дата",
+		"reason": "Причина",
+		"action": "Действие",
+		"content": "Контент",
+		"amount": "Сумма",
+		"API": "API",
+		"items-type": "Тип товара",
+		"items-payment-id": "ID оплаты товара",
+		"time": "Время",
+		"when-needed": "Когда нужно",
+		"address": "Адрес",
+		"wake-up-call-time": "Время пробуждения",
+		"description": "Описание",
+		"balance": "Баланс",
+		"code": "Код",
+		"empty-field": "",
+		"number": "Номер",
+		"type": "Тип"
+	},
+	"notifications": {
+		"new-notification": "Новое уведомление"
+	},
+	"rooms": {
+		"add-new-room": "Добавить комнату"
+	}
+}

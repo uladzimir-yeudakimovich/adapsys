@@ -1,0 +1,30 @@
+app-header + div {
+	margin-top: $header_width + 20px;
+}
+
+body {
+	background-color: $body_background_color;
+}
+
+.container > .row > [class*="col-"] {
+	box-shadow: $column_shadows;
+	background-color: $column_background_color;
+	border-radius: 8px;
+}
+
+.container > .row > div + div {
+	margin-left: 15px;
+    margin-right: -15px;
+}
+
+input[ngbdatepicker] + i,
+input[ngbdatepicker] + ngb-datepicker + i {
+    position: relative;
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+}
+
+input[ngbdatepicker]:disabled + i {
+	color: #6b6b6b;
+}

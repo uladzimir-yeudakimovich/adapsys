@@ -1,0 +1,5 @@
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label *ngFor="let key of this.radios | keys" [className]="'btn btn-primary' + (isCurrent(key) ? ' active' : '')" (click)="setCurrentState(key)">
+    <input type="radio" name="options" value="{{key}}" autocomplete="off"> {{this.radios[key] | translate}}
+  </label>
+</div>

@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-md-2 pt-4">
+		<radio-group class="mt-2" [list]="this.filterTypes" (change)="this.setFilter('type', $event)"></radio-group>
+	</div>
+	<div class="col-md-2">
+		<div class="form-group">
+			<label for="date_from">{{'field.date-from' | translate}}</label>
+			<input type="text" ngbDatepicker #df="ngbDatepicker" (click)="df.toggle()" [disabled]="this.currentState.inputDisabled" [(ngModel)]="this.model.date_from" class="form-control" placeholder="--.--.--">
+			<i class="fa fa-calendar"></i>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="form-group">
+			<label for="date_to">{{'field.date-to' | translate}}</label>
+			<input type="text" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()" [disabled]="this.currentState.inputDisabled" [(ngModel)]="this.model.date_to" class="form-control" placeholder="--.--.--">
+			<i class="fa fa-calendar"></i>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="input-group">
+			<label for="search">Search</label>
+			<input type="text" class="form-control" [(ngModel)]="this.model.room" id="search" placeholder="E.g. room number">
+			<div class="input-group-append">
+				<button class="btn btn-primary" (click)="this.apply()"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2 pt-4">
+		<button class="btn btn-reset mt-2" (click)="this.reset()">{{'button.reset' | translate}}</button>
+	</div>
+</div>

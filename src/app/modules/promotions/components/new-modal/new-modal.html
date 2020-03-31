@@ -1,0 +1,445 @@
+<ng-template #content let-c="close" let-d="dismiss">
+
+    <div class="container">
+        <div style="display: flex;" class="header-pls">
+            <h4>Place</h4>
+        </div>
+
+
+        <ngb-tabset *ngIf="this.description.length === 0">
+            <ngb-tab title="Promotion">
+                <ng-template ngbTabContent>
+                    <div class="row" style="margin: 20px;">
+                        <div class="col-md-12">
+                            <ngb-tabset type="pills">
+                                <ngb-tab title="En">
+                                    <ng-template ngbTabContent>
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="" ngModel name="title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="" ngModel name="subtitle">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" rows="10" placeholder="" ngModel name="description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Ru">
+                                    <ng-template ngbTabContent>
+                                        <div class="row" style="margin-top: 20px;">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" rows="10" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                            <div>
+                                <select class="form-control" name='marital_status' (click)="getIdPlace($event)">
+                                    <option *ngFor="let key of this.addPromotions" value="{{key._id}}">{{ key.name.en }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-0" style="position: absolute; left: 87%;">
+                            <div ngbDropdown class="d-inline-block">
+                                <button class="btn btn-outline-primary" ngbDropdownToggle style="margin: 0;">+</button>
+                                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                    <button class="dropdown-item">En</button>
+                                    <button class="dropdown-item">Ru</button>
+                                    <button class="dropdown-item">Fr</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+                <ng-template ngbTabTitle>Rules</ng-template>
+                <ng-template ngbTabContent>
+                    <div style="margin: 20px;">
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Rooms</div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="room" placeholder="Room number" [(ngModel)] = "modal.roomNumber">
+                                <span style="color:blue;margin-left: 10px;">format: 1,3-5</span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Channels</div>
+                            <div class="col-md-9"></div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Language</div>
+                            <div class="col-md-6 checkbox_list">
+                                <div style="height:100px; overflow:auto; border:solid 1px #C3E4FE;">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.ru">ru
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.fr">fr
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.en">en
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.nl">nl
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="clear: both;">
+                                    <li>
+                                        <label>
+                                            <input class="checkAll" type="checkbox" [(ngModel)] = "allLanguages" (click)="addLanguages()">
+                                            Check all
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Age range</div>
+                            <div class="col-md-6 checkbox_list">
+                                <div style="height:100px; overflow:auto; border:solid 1px #C3E4FE;">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.kids">Kids
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.teens">Teens
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.adult">Adult
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.major">Major
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="clear: both;">
+                                    <li>
+                                        <label>
+                                            <input class="checkAll" type="checkbox" [(ngModel)] = "allAgeRange" (click)="addAge()">
+                                            Check all
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Family status</div>
+                            <div class="col-md-6">
+                                <select name="marital_status" class="form-control mb-1" (click)="getMaritalStatus($event)">
+                                    <option value="0">Doesn't matter</option>
+                                    <option value="1">Married</option>
+                                    <option value="2">Not married</option>
+                                </select>
+                                <select name="children_status" class="form-control" (click)="getChildrenStatus($event)">
+                                    <option value="0">Doesn't matter</option>
+                                    <option value="1">With children</option>
+                                    <option value="2">Without children</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Starts at</div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Expiry at</div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Disable ignore</div>
+                            <div class="col-md-6">
+                                <input style="margin-left: 10px;" type="checkbox" name="disable_ignore" class="form-check-input" [(ngModel)] = "disable_ignore">
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Schedule the sending of promotion</div>
+                            <div class="col-md-6">
+                                <input style="margin-left: 10px;" type="checkbox" name="disable_ignore" class="form-check-input" [(ngModel)] = "sending_promotion">
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+                <ng-template ngbTabTitle>Media</ng-template>
+                <ng-template ngbTabContent>
+                    <div>
+                        <div class="row">
+                            <div>
+                                <div class="galleria-container notouch" style="margin: 20px; background-color: black;">
+                                    <video controls autoplay style="width: 700px; height: 400px;">
+                                        <source src="" type="video">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="row row-compact">
+                                        <img src="" style="width: 110px;height: 110px;background: white; margin: 20px 30px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="justify-content: flex-end; margin-right: 40px;">
+                            <button class="btn btn-warning float-right">Add media</button>
+                            <button class="btn btn-danger float-right"><i class="fa fa-trash"></i>   Remove current media</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+
+
+        <ngb-tabset *ngIf="this.description.length !== 0">
+            <ngb-tab title="Promotion">
+                <ng-template ngbTabContent>
+                    <div class="row" style="margin: 20px;">
+
+                            <div class="col-md-12">
+                                <ngb-tabset type="pills">
+                                    <ngb-tab *ngFor="let key of this.description" title="{{ key.lang }}">
+                                        <ng-template ngbTabContent>
+                                            <div class="row" style="margin-top: 20px;">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" rows="10" placeholder="">{{ key.desc }}</textarea>
+                                                    </div>
+                                                    <div>
+                                                        <select class="form-control" name='marital_status' (click)="getIdPlace($event)">
+                                                            <option *ngFor="let key of this.addPromotions" value="{{key._id}}">{{ key.name.en }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-template>
+                                    </ngb-tab>
+                                </ngb-tabset>
+                            </div>
+                            <div class="col-md-0" style="position: absolute; left: 87%;">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-primary" ngbDropdownToggle style="margin: 0;">+</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <button class="dropdown-item">En</button>
+                                        <button class="dropdown-item">Ru</button>
+                                        <button class="dropdown-item">Fr</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+                <ng-template ngbTabTitle>Rules</ng-template>
+                <ng-template ngbTabContent>
+                    <div style="margin: 20px;">
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Rooms</div>
+                            <div class="col-md-6">
+                                <input class="form-control" type="text" name="room" placeholder="Room number">
+                                <span style="color:blue;margin-left: 10px;">format: 1,3-5</span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Channels</div>
+                            <div class="col-md-9"></div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Language</div>
+                            <div class="col-md-6 checkbox_list">
+                                <div style="height:100px; overflow:auto; border:solid 1px #C3E4FE;">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.ru">ru
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.fr">fr
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.en">en
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "languages.nl">nl
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="clear: both;">
+                                    <li>
+                                        <label>
+                                            <input class="checkAll" type="checkbox" [(ngModel)] = "allLanguages" (click)="addLanguages()">
+                                            Check all
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Age range</div>
+                            <div class="col-md-6 checkbox_list">
+                                <div style="height:100px; overflow:auto; border:solid 1px #C3E4FE;">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.kids">Kids
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.teens">Teens
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.adult">Adult
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" (click)="change()" [(ngModel)] = "ageRange.major">Major
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <ul style="clear: both;">
+                                    <li>
+                                        <label>
+                                            <input class="checkAll" type="checkbox" [(ngModel)] = "allAgeRange" (click)="addAge()">
+                                            Check all
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Family status</div>
+                            <div class="col-md-6">
+                                <select name="marital_status" class="form-control mb-1" (click)="getMaritalStatus($event)">
+                                    <option value="0">Doesn't matter</option>
+                                    <option value="1">Married</option>
+                                    <option value="2">Not married</option>
+                                </select>
+                                <select name="children_status" class="form-control" (click)="getChildrenStatus($event)">
+                                    <option value="0">Doesn't matter</option>
+                                    <option value="1">With children</option>
+                                    <option value="2">Without children</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Starts at</div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Expiry at</div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Disable ignore</div>
+                            <div class="col-md-6">
+                                <input style="margin-left: 10px;" type="checkbox" name="disable_ignore" class="form-check-input" [(ngModel)] = "disable_ignore">
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 5px;">
+                            <div class="col-md-3">Schedule the sending of promotion</div>
+                            <div class="col-md-6">
+                                <input style="margin-left: 10px;" type="checkbox" name="disable_ignore" class="form-check-input" [(ngModel)] = "sending_promotion">
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab>
+                <ng-template ngbTabTitle>Media</ng-template>
+                <ng-template ngbTabContent>
+                    <div>
+                        <div class="row">
+                            <div id="galleria">
+                                <div class="galleria-container notouch" style="margin: 20px; background-color: black;">
+                                    <video controls autoplay style="width: 700px; height: 400px;">
+                                        <source src="" type="video">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <div class="row row-compact">
+                                        <img src="{{ this.description[0].img.image }}" style="width: 110px;height: 110px;background: white; margin: 20px 30px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="justify-content: flex-end; margin-right: 40px;">
+                            <button class="btn btn-warning float-right">Add media</button>
+                            <button class="btn btn-danger float-right"><i class="fa fa-trash"></i>   Remove current media</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
+            <!--<ngb-tab>-->
+                <!--<ng-template ngbTabTitle>-->
+                    <!--<b>+</b>-->
+                <!--</ng-template>-->
+            <!--</ngb-tab>-->
+        </ngb-tabset>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="c()">Close</button>
+            <button type="submit" class="btn btn-primary" (click)="this.save(c)">Save changes</button>
+        </div>
+    </div>
+
+</ng-template>

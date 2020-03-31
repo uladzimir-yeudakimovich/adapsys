@@ -1,0 +1,45 @@
+ngb-datepicker {
+	[role="gridcell"] > div.bg-primary {
+		background-color: $primary_color !important;
+	}
+
+	[role="gridcell"] > div:hover {
+		background-color: $hover_background_color;
+	}
+
+	[role="gridcell"] > div:hover,
+	[role="gridcell"] > div,
+	[role="gridcell"] > div:active,
+	[role="gridcell"] > div:focus,
+	[role="gridcell"] {
+		box-shadow: none !important;
+		outline: none !important;
+	}
+
+	.ngb-dp-weekday {
+		color: $primary_color !important;
+	}
+
+	ngb-datepicker-navigation {
+		.btn-link,
+		.btn-link:hover,
+		.btn-link:active,
+		.btn-link:focus {
+			color: $primary_color !important;
+			box-shadow: none !important;
+			outline: none !important;
+		}
+
+		.custom-select,
+		.custom-select:hover,
+		.custom-select:active,
+		.custom-select:focus {
+			box-shadow: none !important;
+			outline: none !important;
+		}
+
+		.custom-select:focus {
+			border-color: $primary_color !important;
+		}
+	}
+}

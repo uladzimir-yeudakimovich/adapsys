@@ -1,0 +1,23 @@
+<ngb-tabset (tabChange)="beforeTabChange($event)">
+  <ngb-tab *ngFor="let lang of this.tabs" title="{{lang}}">
+    <ng-template ngbTabContent>
+        <div class="row" *ngFor="let field of this.form">
+          <div class="col-md-12">
+            {{field['label'] | translate}}
+            <input type="text" class="form-control" [(ngModel)]="this.data[lang][field['name']]" (change)="this.fieldChanged()" name="{{field['name']}}" value="{{this.data[lang][field['name']]}}" placeholder="{{field['label'] | translate}}">
+          </div>
+        </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="tab-plus-lang">
+    <ng-template ngbTabTitle>
+      <div ngbDropdown class="d-inline-block" [hidden]="this.isTabsDropdownEmpty()">
+        <button class="btn btn-light btn-sm btn-plus-lang" ngbDropdownToggle><i class="fa fa-plus"></i></button>
+        <div ngbDropdownMenu>
+          <button class="dropdown-item" *ngFor="let lang of this.availableLanguages | keys" [hidden]="this.isTabExists(lang)" (click)="this.addLanguage(lang)">{{this.availableLanguages[lang]}}</button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template ngbTabContent></ng-template>
+  </ngb-tab>
+</ngb-tabset>

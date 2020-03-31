@@ -1,0 +1,60 @@
+<div class="mb-2">
+		   <div class="row">
+		      <div class="col-md-12">
+		         <table>
+		            <tbody>
+		               <tr>
+		                  <td><label for="responsible_filter" class="col-sm-4 col-form-label">Responsible</label></td>
+		                  <td>
+		                     <select [(ngModel)]="this.model.responsible" class="form-control" id="responsible_filter">
+		                        <option value="">---------</option>
+		                        <option *ngFor="let guest of this.guests" value="{{guest['_id']}}">{{guest['name']}} {{guest['surname']}}</option>
+		                     </select>
+		                  </td>
+		                  <td><label for="creator_filter" class="col-sm-3 col-form-label">Creator</label></td>
+		                  <td>
+		                     <select [(ngModel)]="this.model.creator" class="form-control" id="creator_filter">
+		                        <option value="">---------</option>
+		                        <option *ngFor="let user of this.users" value="{{user['_id']}}">{{user['username']}}</option>
+		                     </select>
+		                  </td>
+		                  <td><label for="title_filter" class="col-sm-3 col-form-label">Title</label></td>
+		                  <td><input [(ngModel)]="this.model.title" type="text" class="form-control" id="title_filter" placeholder="Title filter"></td>
+		                  <td><label for="status_filter" class="col-sm-3 col-form-label">Status</label></td>
+		                  <td>
+		                     <select [(ngModel)]="this.model.status" class="form-control" id="status_filter">
+		                        <option value="">---------</option>
+		                        <option value="NEW">New</option>
+		                        <option value="PROGRESS">Progress</option>
+		                        <option value="PAUSED">Paused</option>
+		                        <option value="COMPLETED">Closed</option>
+		                        <option value="FAILED">Failed</option>
+		                        <option value="DECLINED">Declined</option>
+		                     </select>
+		                  </td>
+		               </tr>
+		               <tr>
+		                  <td>
+		                     <label for="dead_from" class="col-sm-3 col-form-label">
+		                        Deadline from
+		                     </label>
+		                  </td>
+		                  <td>
+		                  	<input [(ngModel)]="this.model.from" ngbDatepicker #df="ngbDatepicker" (click)="df.toggle()" type="text" class="form-control" id="dead_from">
+		                  	<i class="fa fa-calendar"></i>
+		                  </td>
+		                  <td><label for="dead_to" class="col-sm-3 col-form-label">To</label></td>
+		                  <td>
+		                  	<input [(ngModel)]="this.model.to" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()" type="text" class="form-control" id="dead_to">
+		                  	<i class="fa fa-calendar"></i>
+		                  </td>
+		                  <td colspan="4" class="text-right">
+		                     <button class="btn btn-sm btn-outline-primary" (click)="apply()">{{'button.filter' | translate}}</button>
+		                     <button class="btn btn-sm btn-outline-danger" (click)="reset()">{{'button.reset' | translate}}</button>
+		                  </td>
+		               </tr>
+		            </tbody>
+		         </table>
+		      </div>
+		   </div>
+		</div>

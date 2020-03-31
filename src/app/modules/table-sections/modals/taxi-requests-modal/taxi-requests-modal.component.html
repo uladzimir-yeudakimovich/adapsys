@@ -1,0 +1,99 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-12">
+            <ngb-tabset>
+              <ngb-tab title="Order">
+                <ng-template ngbTabContent>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <table class="table">
+                           <tbody>
+                              <tr>
+                                 <td><b>Name</b></td>
+                                 <td>{{this.request['name']}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>Order time</b></td>
+                                 <td>{{this.request['date'] | date}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>Origin</b></td>
+                                 <td>Kostromskoy rayon</td>
+                              </tr>
+                              <tr>
+                                 <td><b>When needed</b></td>
+                                 <td>{{this.request['when_needed'] | date}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>Persons number</b></td>
+                                 <td>{{this.request['persons_number']}}</td>
+                              </tr>
+                              <tr>
+                                 <td><b>Accessibility ramp</b></td>
+                                 <td>{{!this.request['accessibility_ramp'] ? 'No' : 'Yes'}}</td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2" style="text-align: center;">
+                                    <b>Change status</b>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Status</td>
+                                 <td>
+                                    <select [(ngModel)]="this.model.status" class="form-control">
+                                       <option value="New">New</option>
+                                       <option value="Accepted">Accepted</option>
+                                       <option value="Completed">Completed</option>
+                                       <option value="Rejected">Rejected</option>
+                                    </select>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Taxi number</td>
+                                 <td><input [(ngModel)]="this.model.taxi_number" type="text" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                 <td>Message</td>
+                                 <td><textarea [(ngModel)]="this.model.message" class="form-control"></textarea></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="col-md-6">
+                        <div style="height: 300px;"
+                             leaflet 
+                             [leafletOptions]="this.mapOptions"
+                             [leafletLayers]="this.mapLayers">
+                        </div>
+                     </div>
+                  </div>
+                </ng-template>
+              </ngb-tab>
+              <ngb-tab title="History">
+                <ng-template ngbTabContent>
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th colspan="3">Changes history (date, status, message)</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let status of this.request['status_changes']">
+                           <td>{{status['date'] | date}}</td>
+                           <td>{{status['status']}}</td>
+                           <td>{{status['message']}}</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                </ng-template>
+              </ngb-tab>
+            </ngb-tabset>
+         </div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button class="btn btn-primary" (click)="save(c)">{{'button.update' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.close' | translate}}</button>
+   </div>
+</ng-template>

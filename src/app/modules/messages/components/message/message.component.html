@@ -1,0 +1,7 @@
+<div [className]="(this.is_child ? 'child' : '')">
+	<div class="message-sender pt-2 pb-2">{{this.data['sender'] | multilang}}</div>
+	<div class="message-date">{{this.data['date'] | date}}</div>
+	<message *ngIf="this.data['replyId']" [data]="this.getMessage(this.data['replyId'])" [isChild]="true"></message>
+	<div class="message-content mb-3">{{this.Message.getSecondaryText()}}</div>
+	<div class="message-content mb-3" style="margin-top: -20px;"><i>{{this.data['message'] | multilang}}</i></div>
+</div>

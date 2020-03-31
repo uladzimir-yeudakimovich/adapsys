@@ -1,0 +1,47 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-12">
+            <table class="table">
+               <tr>
+                  <td>Country:</td>
+                  <td>{{this.guest['country']}}</td>
+               </tr>
+               <tr>
+                  <td>Birthdate:</td>
+                  <td>{{this.guest['birthdate'] | date}}</td>
+               </tr>
+               <tr>
+                  <td>Reservation ID:</td>
+                  <td>{{this.guest['rid']}}</td>
+               </tr>
+               <tr>
+                  <td>SIP user:</td>
+                  <td>{{this.guest['sip_user']}}</td>
+               </tr>
+               <tr>
+                  <td>SIP password:</td>
+                  <td>{{this.guest['sip_password']}}</td>
+               </tr>
+               <tr>
+                  <td>SIP alias:</td>
+                  <td>{{this.guest['sip_alias']}}</td>
+               </tr>
+               <tr>
+                  <td>Confirm. code:</td>
+                  <td>{{this.guest['confirmation_code']}}</td>
+               </tr>
+               <tr>
+                  <td>Net limit status:</td>
+                  <td>{{this.guest['netLimitStatus']}}</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <!-- f-row -->
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.close' | translate}}</button>
+   </div>
+   <!-- f-actions -->
+</ng-template>

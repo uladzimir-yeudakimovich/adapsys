@@ -1,0 +1,24 @@
+$header_width: 60px;
+
+// Colors
+$body_background_color: #fff;
+$column_background_color: #fff;
+$primary_color: #007bff;
+$danger_color: #dc3545;
+$hover_background_color: #FEF6F1;
+
+//Shadows
+$column_shadows: 0 .25rem .75rem rgba(0, 0, 0, .15);
+
+//Navigation
+$navigation_link_color: #333333;
+$navigation_link_hover_background: #007bff;
+$navigation_link_hover_color: #333333;
+
+//Paths
+$dir_images: '/assets/images/';
+$dir_images_flags: $dir_images + 'flags/';
+$logo_path: none;
+
+//Modification by custom theme
+@import 'custom/youhotel.scss';

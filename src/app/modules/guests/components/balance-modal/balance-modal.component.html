@@ -1,0 +1,17 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <h4>Refill balance</h4>
+      <div class="row">
+         <div class="col-md-6">Current balance:</div>
+         <div class="col-md-6">{{this.guest.balance}}</div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">Amount:</div>
+         <div class="col-md-6"><input class="form-control" [(ngModel)]="this.model.amount"></div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="this.save(c)">{{'button.ok' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.cancel' | translate}}</button>
+   </div>
+</ng-template>

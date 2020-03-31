@@ -1,0 +1,17 @@
+.header {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.dialog-actions .dropdown-toggle::after {
+	display: none;
+}
+
+.button-send-wrap {
+	padding-left: 0px;
+    margin-left: 0px;
+}
+
+textarea {
+	width: 100%;
+}

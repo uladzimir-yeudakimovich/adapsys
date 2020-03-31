@@ -1,0 +1,11 @@
+.fa {
+	color: $primary_color;
+}
+
+.btn-danger .fa,
+.btn-info .fa,
+.btn-success .fa,
+.btn-warning .fa,
+.btn-primary .fa {
+	color: #fff;
+}

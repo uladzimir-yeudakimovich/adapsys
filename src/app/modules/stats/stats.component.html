@@ -1,0 +1,128 @@
+<div class="row mt-2 mb-2">
+	<div class="col-md-12">
+		<h3>{{this.title | translate}}</h3>
+	</div>
+	<div class="col-md-12">
+		<app-stats-filter></app-stats-filter>
+	</div>
+	<div class="col-md-12">
+		<h2>Base data:</h2>
+
+		<table class="table">
+		   <tbody>
+		      <tr>
+		         <td>Check In:</td>
+		         <td>
+		            {{stats['guests_checked_in']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Check Out:</td>
+		         <td>
+		            {{stats['guests_checked_out']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>TOS accepted:</td>
+		         <td>
+		            {{stats['tos_accepted']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Reservations:</td>
+		         <td>
+		            {{stats['reservations_created']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Messages:</td>
+		         <td>
+		            {{stats['messages_sent']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Dialogs opened:</td>
+		         <td>
+		            {{stats['dialogs_opened']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Activities entered:</td>
+		         <td>
+		            {{stats['activities_entered']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Buttons clicked:</td>
+		         <td>
+		            {{stats['buttons_clicked']}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Bytes sent, MiB:</td>
+		         <td>
+		            {{stats['bytes_sent'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Bytes received, MiB:</td>
+		         <td>
+		            {{stats['bytes_received'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Mobile bytes sent, MiB:</td>
+		         <td>
+		            {{stats['mobile_bytes_sent'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Mobile bytes received, MiB:</td>
+		         <td>
+		            {{stats['mobile_bytes_received'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Hotspot bytes sent, MiB:</td>
+		         <td>
+		            {{stats['hotspot_bytes_sent'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		      <tr>
+		         <td>Hotspot bytes received, MiB:</td>
+		         <td>
+		            {{stats['hotspot_bytes_received'] | bytes:'MB'}}
+		         </td>
+		      </tr>
+		   </tbody>
+		</table>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Sections:</h2>
+		<app-stats-tabs [data]="stats['sections_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Place views:</h2>
+		<app-stats-tabs [data]="stats['place_views_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Place menu views:</h2>
+		<app-stats-tabs [data]="stats['place_menu_views_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Orders:</h2>
+		<app-stats-tabs [data]="stats['orders_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Links:</h2>
+		<app-stats-tabs [data]="stats['links_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>External apps:</h2>
+		<app-stats-tabs [data]="stats['external_apps_pop']"></app-stats-tabs>
+	</div>
+	<div class="col-md-12 mt-4">
+		<h2>Referrals:</h2>
+		<app-stats-tabs [data]="stats['referrals_pop']"></app-stats-tabs>
+	</div>
+</div>

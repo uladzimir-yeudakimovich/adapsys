@@ -1,0 +1,23 @@
+<nav>
+  <ul class="pagination">
+    <li class="page-item item-total pt-2 pr-3">
+      {{'pagination.results' | translate}} {{this.indexStart}}-{{this.indexEnd}} {{'pagination.of' | translate}} {{this.count}}
+    </li>
+    <li class="page-item">
+      <a class="page-link" [className]="'page-link' + (canPrev() ? '' : ' disabled')" (click)="navigate('prev')" aria-label="Previous">
+        <span aria-hidden="true">
+          <i class="fa fa-chevron-left"></i>
+        </span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" [className]="'page-link' + (canNext() ? '' : ' disabled')" (click)="navigate('next')" aria-label="Next">
+        <span aria-hidden="true">
+          <i class="fa fa-chevron-right"></i>
+        </span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>

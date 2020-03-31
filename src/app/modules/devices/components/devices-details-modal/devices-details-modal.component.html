@@ -1,0 +1,19 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-12">
+            <table class="table">
+               <tr *ngFor="let key of this.device | keys">
+                  <td>{{key}}</td>
+                  <td>{{this.device[key]}}</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <!-- f-row -->
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.cancel' | translate}}</button>
+   </div>
+   <!-- f-actions -->
+</ng-template>

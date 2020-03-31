@@ -1,0 +1,44 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-6">
+            <label>
+               Message:
+               <input type="text" class="form-control" [(ngModel)]="this.model.message">
+            </label>
+         </div>
+         <div class="col-md-4">
+            <label>
+               Status:
+               <select name="status" [(ngModel)]="this.model.status" class="form-control">
+                  <option value="New" selected="selected">New</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Rejected">Rejected</option>
+               </select>
+            </label>
+         </div>
+         <div class="col-md-2">
+            <br>
+            <button class="btn btn-primary" (click)="save(c)">{{'button.update' | translate}}</button>
+         </div>
+      </div>
+      <table class="table">
+         <thead>
+            <tr>
+               <th colspan="3">Changes history (date, status, message)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let status of this.request['status_changes']">
+               <td>{{status['date'] | date}}</td>
+               <td>{{status['status']}}</td>
+               <td>{{status['message']}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.close' | translate}}</button>
+   </div>
+</ng-template>

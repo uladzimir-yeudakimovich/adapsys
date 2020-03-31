@@ -1,0 +1,103 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div id="formcontainer">
+            <fieldset>
+               <legend *ngIf="this.isCreate">{{'guests.add-guest' | translate}}</legend>
+               <legend *ngIf="!this.isCreate">{{'guests.edit-guest' | translate}}</legend>
+               <div class="row">
+                  <div class="col-md-4">
+                     <label for="name">{{'field.name' | translate}} *</label>
+                     <input type="text" class="form-control" [(ngModel)]="this.model.name">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="surname">{{'field.surname' | translate}} *</label>
+                     <input type="text" class="form-control" [(ngModel)]="this.model.surname">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="datefrom">{{'field.date-from' | translate}} *</label>
+                     <input class="form-control" ngbDatepicker #df="ngbDatepicker" (click)="df.toggle()" type="text" [(ngModel)]="this.model.datefrom">
+                     <i class="fa fa-calendar"></i>
+                  </div>
+                  <div class="col-md-4">
+                     <label for="dateto">{{'field.date-to' | translate}} *</label>
+                     <input class="form-control" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()" type="text" [(ngModel)]="this.model.dateto">
+                     <i class="fa fa-calendar"></i>
+                  </div>
+                  <div class="col-md-4">
+                     <label for="room">{{'common.room' | translate}} *</label>
+                     <input type="text" class="form-control" [(ngModel)]="this.model.room">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="guestTypeId">{{'guests.guest-type' | translate}}</label>
+                     <br>
+                     <select [(ngModel)]="this.model.guestTypeId" class="form-control">
+                        <option *ngFor="let _id of this.guestTypes | keys" value="{{_id}}">
+                           {{this.guestTypes[_id]}}
+                        </option>
+                     </select>
+                  </div>
+                  <div class="col-md-4">
+                     <label for="confirmation_code">{{'field.confirmation-code' | translate}}</label>
+                     <input type="text" class="form-control" [(ngModel)]="this.model.confirmation_code">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="referral_code">{{'field.referral' | translate}}:</label>
+                     <input type="text" class="form-control" [(ngModel)]="this.model.referral_code">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="language">{{'field.language' | translate}}</label>
+                     <select class="form-control" [(ngModel)]="this.model.language" name="language">
+                        <option *ngFor="let lang of this.languages | keys" value="{{lang}}">
+                           {{this.languages[lang]}}
+                        </option>
+                     </select>
+                  </div>
+                  <div class="col-md-4">
+                     <label for="dateto">{{'field.birthdate' | translate}}</label>
+                     <input class="form-control" ngbDatepicker #db="ngbDatepicker" (click)="db.toggle()" [(ngModel)]="this.model.birthdate" type="text" name="birthdate">
+                     <i class="fa fa-calendar"></i>
+                  </div>
+                  <div class="col-md-4 text-center">
+                     <label for="married">{{'field.married' | translate}}</label>
+                     <br>
+                     <input type="checkbox" [(ngModel)]="this.model.married" name="married">
+                  </div>
+                  <div class="col-md-4 text-center">
+                     <label for="with_kids">{{'field.with_kids' | translate}}</label>
+                     <br>
+                     <input type="checkbox" [(ngModel)]="this.model.with_kids" name="with_kids">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="mobile">{{'field.count_adults' | translate}}</label>
+                     <br>
+                     <input class="form-control" [(ngModel)]="this.model.count_adults" type="text" name="count_adults" value="1">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="mobile">{{'field.count_children' | translate}}</label>
+                     <br>
+                     <input class="form-control" [(ngModel)]="this.model.count_children" type="text" name="count_children" value="0">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="mobile">{{'field.count_babies' | translate}}</label>
+                     <br>
+                     <input class="form-control" [(ngModel)]="this.model.count_babies" type="text" name="count_babies" value="0">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="mobile">{{'field.mobile' | translate}}</label>
+                     <br>
+                     <input class="form-control" [(ngModel)]="this.model.mobile" type="text" name="mobile">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="email">{{'field.email' | translate}}</label>
+                     <br>
+                     <input class="form-control" [(ngModel)]="this.model.email" type="text" name="email">
+                  </div>
+               </div>
+            </fieldset>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="this.save(c)">{{'button.ok' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.cancel' | translate}}</button>
+   </div>
+</ng-template>

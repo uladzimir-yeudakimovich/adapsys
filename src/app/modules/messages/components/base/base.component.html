@@ -1,0 +1,63 @@
+<div class="row mt-2 mb-2">
+	<div class="col-md-12">
+		<h3>{{'section.messages' | translate}}</h3>
+		<a class="btn btn-primary" href="#/messages/new"><i class="fa fa-plus-sign"></i> New message</a>
+	</div>
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="date_from">{{'field.date-from' | translate}}</label>
+					<input type="text" ngbDatepicker #df="ngbDatepicker" (click)="df.toggle()" class="form-control" placeholder="--.--.--">
+					<i class="fa fa-calendar"></i>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<label for="date_to">{{'field.date-to' | translate}}</label>
+					<input type="text" ngbDatepicker #dt="ngbDatepicker" (click)="dt.toggle()" class="form-control" placeholder="--.--.--">
+					<i class="fa fa-calendar"></i>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="input-group">
+					<label for="search">Search</label>
+					<input type="text" class="form-control" id="search" placeholder="E.g. room number">
+				</div>
+			</div>
+			<div class="col-md-2 pt-4">
+				<div class="custom-control custom-checkbox mt-2">
+					<input type="checkbox" class="custom-control-input" id="in_archive">
+					<label class="custom-control-label" for="in_archive">Search in archive</label>
+				</div>
+			</div>
+			<div class="col-md-2 pt-4">
+				<button class="btn btn-primary mt-1"><i class="fa fa-search"></i></button>
+				<button class="btn btn-reset mt-2 ml-2">{{'button.reset' | translate}}</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+
+	  			<pagination
+	  				[count]="this.dialogs.length"
+	  				[perPage]="10"
+	  				(change)="this.setDialogPage"
+	  			></pagination>
+
+			    <div class="nav flex-column nav-dialogs nav-pills" role="tablist">
+			      <a
+			      	*ngFor="let dialog of this.dialogs"
+			      	[className]="'nav-link' + (this.isCurrentDialog(dialog['ID']) ? ' active' : '')"
+			      	data-toggle="pill"
+			      	role="tab"
+			      	(click)="this.setCurrentDialog(dialog['ID'])"
+			      >{{dialog['name'] | multilang}}</a>
+			    </div>
+			</div>
+			<div class="col-md-8">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>

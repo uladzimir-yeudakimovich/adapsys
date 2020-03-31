@@ -1,0 +1,7 @@
+.checklistItem + span {
+	margin-left: 5px;
+}
+
+.checklistItem + span + span {
+	cursor: pointer;
+}

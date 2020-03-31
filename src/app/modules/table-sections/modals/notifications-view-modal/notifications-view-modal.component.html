@@ -1,0 +1,16 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="row">
+         <div class="col-md-6">
+            {{this.notification["body"]}}
+            <span class="place-name" *ngIf="this.notification['place_id']">Place: {{this.notification['place_name'] | multilang}}</span>
+         </div>
+         <div class="col-md-6">
+            <img *ngIf="this.notification['imageUrl']" [src]="this.notification['imageUrl']" style="max-width:300px;">
+         </div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.close' | translate}}</button>
+   </div>
+</ng-template>

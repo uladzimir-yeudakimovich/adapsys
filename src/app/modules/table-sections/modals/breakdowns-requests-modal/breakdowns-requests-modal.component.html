@@ -1,0 +1,22 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div>{{this.request['message']}}</div>
+      <table class="table">
+         <thead>
+            <tr>
+               <th colspan="3">Changes history (date, status, message)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let status of this.request['status_changes']">
+               <td>{{status['date'] | date}}</td>
+               <td>{{status['status']}}</td>
+               <td>{{status['message']}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.close' | translate}}</button>
+   </div>
+</ng-template>

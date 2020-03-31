@@ -1,0 +1,48 @@
+@import 'variables.scss';
+
+.btn-dropdown-account {
+
+	background-color: $hover_background_color;
+	border-radius: 36px;
+
+	.fa {
+		color: $primary_color;
+		font-size: 23px;
+	}
+}
+
+.dropleft .dropdown-toggle::before {
+	display: none;
+}
+
+.hotel-image {
+    height: 30px;
+    width: 120px;
+    background-size: cover;
+    display: inline-block;
+	background-image: $logo_path;
+}
+
+.hotel-name {
+    display: inline-block;
+    padding-left: 25px;
+    color: #666;
+    font-size: 21px;
+}
+
+.dropdown-menu {
+	left: -120px !important;
+}
+
+.clock {
+	color: #6c757d;
+	padding-right: 20px;
+}
+
+app-header-langswitcher {
+	margin-right: 5px;
+}
+
+.dropdown-item {
+	cursor: pointer;
+}

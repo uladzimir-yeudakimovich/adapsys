@@ -1,0 +1,66 @@
+.cl-na-sub-des, .header-pls {
+  margin: 15px 0 10px 0
+}
+
+li {
+  list-style-type: none; /* Убираем маркеры */
+}
+ul {
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+
+.modal-header {
+  flex-direction: column;
+}
+
+.modal-header {
+  padding-bottom: 0px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.modal-content {
+  pointer-events: auto;
+}
+
+dl, ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+//.edit-form .nav-pills .nav-link:active {
+//
+//  border-bottom: 3px solid #F77F28 !important;
+//  color: #212529 !important;
+//}
+//
+//.edit-form .nav-pills .nav-link {
+//  border-radius: 0px !important;
+//}
+
+.nav-link .active {
+  background-color: #fff !important;
+}
+
+button {margin: 10px;}
+
+.form-check {margin-left: 10px;}
+
+.col-md-3, .col-md-6 {margin-top: 10px;}

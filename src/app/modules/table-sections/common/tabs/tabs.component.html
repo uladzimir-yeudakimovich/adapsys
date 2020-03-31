@@ -1,0 +1,5 @@
+<ul class="nav nav-pills">
+  <li *ngFor="let s of this.tabs" [className]="'nav-item table-tabs-'+s+(isCurrent(s) ? ' active' : '')" class="nav-item">
+    <a class="nav-link" (click)="setCurrentTab(s)">{{'tabs.'+s | translate}}</a>
+  </li>
+</ul>

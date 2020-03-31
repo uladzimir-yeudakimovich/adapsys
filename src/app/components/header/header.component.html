@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-md fixed-top bg-white border-bottom box-shadow">
+  <a class="navbar-brand my-0" href="#">
+    <div class="hotel-image"></div>
+    <div class="hotel-name">{{this.hotelName}}</div>
+  </a>
+  <div class="navbar-menu-sections mr-md-auto">
+
+  </div>
+  <div class="clock">{{this.currentDate | date:"d LLL yyyy, HH:mm"}}</div>
+  <app-header-langswitcher></app-header-langswitcher>
+  <div class="my-2 my-md-0 mr-md-7 navbar-menu-right">
+    <div ngbDropdown class="dropdown dropleft">
+      <button ngbDropdownToggle class="btn btn-light dropdown-toggle btn-dropdown-account" type="button" id="dropdownMenuButtonAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-user"></i>
+      </button>
+      <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuButtonAccount">
+        <a class="dropdown-item" (click)="this.logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+  <span class="navbar-text navbar-version"></span>
+  <div id="digital_watch" class="flags navbar-text"></div>
+</nav>

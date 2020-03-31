@@ -1,0 +1,63 @@
+<app-guests-balance-modal #balanceModal (onClose)="this.update()"></app-guests-balance-modal>
+<app-guests-edit-modal #editModal (onClose)="this.update()"></app-guests-edit-modal>
+<app-guests-details-modal #detailsModal></app-guests-details-modal>
+
+<table class="table table-hover">
+   <thead>
+   <tr id="controlsRow">
+      <td colspan="12">
+         <div class="row">
+            <div class="col-md-6">
+               <button type="button" (click)="this.showModalCreate()" class="btn btn-primary btn-guest-add">{{'guests.add-guest' | translate}}</button>
+            </div>
+            <div style="position: relative; left: 26%;">
+               <div class="input-group">
+                  <select id="groupOperation" class="form-control" disabled="disabled">
+                     <option value=""></option>
+                     <option value="checkOut">CheckOut</option>
+                  </select>
+                  <div class="input-group-append">
+                     <button type="button" class="btn btn-outline-secondary input-group-text" id="groupOperationApply" disabled="disabled">{{'button.apply' | translate}}</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </td>
+   </tr>
+   <tr>
+      <th><input type="checkbox" class="crowdControl"></th>
+      <th>{{'field.room' | translate}}</th>
+      <th>{{'field.date-from' | translate}}</th>
+      <th>{{'field.date-to' | translate}}</th>
+      <th>{{'field.name' | translate}}</th>
+      <th>{{'field.surname' | translate}}</th>
+      <th>{{'field.language' | translate}}</th>
+      <th>{{'field.balance' | translate}}</th>
+      <!--<th>{{'field.referral' | translate}}</th>-->
+      <!--<th>Net s/r, MiB</th>-->
+      <th>{{'field.action' | translate}}</th>
+   </tr>
+   </thead>
+   <tbody>
+   <tr *ngFor="let guest of this.data" (click)="this.showModalDetails(guest)">
+      <td>
+         <input type="checkbox">
+      </td>
+      <td>{{guest['room']}}</td>
+      <td>{{guest['datefrom'] | date}}</td>
+      <td>{{guest['dateto'] | date}}</td>
+      <td>{{guest['name']}}</td>
+      <td>{{guest['surname']}}</td>
+      <td>{{guest['language']}}</td>
+      <td>{{guest['balance']}}</td>
+      <!--<td>{{guest['referral_code']}}</td>-->
+      <!--<td>{{guest['bytes_sent']}}/{{guest['bytes_received']}}</td>-->
+      <td>
+         <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary" (click)="this.showModalEdit(guest)">{{'button.edit' | translate}}</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="this.showModalBalance(guest)">{{'field.balance' | translate}}</button>
+         </div>
+      </td>
+   </tr>
+   </tbody>
+</table>

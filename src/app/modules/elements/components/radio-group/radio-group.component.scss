@@ -1,0 +1,13 @@
+@import 'variables.scss';
+
+.btn-primary {
+	border-color: #e5e5e5 !important;
+	color: #333 !important;
+	background-color: #fff !important;
+}
+
+.btn-primary.active {
+	background-color: $primary_color !important;
+	border-color: $primary_color !important;
+	color: #fff !important;
+}

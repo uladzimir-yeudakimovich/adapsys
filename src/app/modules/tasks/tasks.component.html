@@ -1,0 +1,38 @@
+<app-tasks-edit-modal #modal (onClose)="this.updateTasks()"></app-tasks-edit-modal>
+
+<div class="row mt-2 mb-2">
+	<div class="col-md-12">
+		<h3>{{this.title | translate}}</h3>
+	</div>
+	<div class="col-md-12">
+		<app-tasks-filter (onApply)="this.apply($event)"></app-tasks-filter>
+
+
+		<button type="button" class="btn btn-primary" (click)="this.showAddModal()">{{'tasks.add-task' | translate}}</button>
+
+		<table class="table mt-2">
+		   <thead>
+		      <tr>
+		         <th>Responsible</th>
+		         <th>Creator</th>
+		         <th>Title</th>
+		         <th>Status</th>
+		         <th>Deadline</th>
+		         <th></th>
+		      </tr>
+		   </thead>
+		   <tbody>
+		      <tr *ngFor="let task of this.data">
+		         <td>{{task['responsible']['name']}}</td>
+		         <td>{{task['creator']['name']}}</td>
+		         <td>{{task['title']}}</td>
+		         <td>{{task['status']}}</td>
+		         <td>{{task['deadline'] | date}}</td>
+		         <td>
+		            <button class="btn btn-outline-primary btn-sm" (click)="this.showEditModal(task)">{{'button.edit' | translate}}</button>
+		         </td>
+		      </tr>
+		   </tbody>
+		</table>
+	</div>
+</div>

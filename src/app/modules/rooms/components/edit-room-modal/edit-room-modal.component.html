@@ -1,0 +1,23 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <legend *ngIf="this.isCreate">Add room</legend>
+      <legend *ngIf="!this.isCreate">Edit room</legend>
+      <div class="row">
+         <div class="col-md-6">
+            <label for="number">Номер комнаты *</label>
+            <input type="text" [(ngModel)]="this.model.number" class="form-control" name="number"><span class="text-info">format: 1,3-5</span>
+         </div>
+         <div class="col-md-6">
+            <label>Тип</label>
+            <select [(ngModel)]="this.model.type_id" class="form-control">
+               <option value="">Отсутствует тип</option>
+               <option *ngFor="let type of this.roomTypes" value="{{type['_id']}}">{{type['name'] | multilang}}</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="this.save(c)">{{'button.save' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()">{{'button.cancel' | translate}}</button>
+   </div>
+</ng-template>

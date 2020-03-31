@@ -1,0 +1,12 @@
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th *ngFor="let col of this.columns">{{'field.'+col | translate}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of this.data">
+			<td *ngFor="let col of row['cols']" (click)="this.click(row['_object'])" [innerHtml]="col"></td>
+		</tr>
+	</tbody>
+</table>

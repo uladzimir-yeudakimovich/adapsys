@@ -1,0 +1,54 @@
+<div class="row mt-2 mb-2">
+   <div class="col-md-12">
+      <h3>{{this.title | translate}}</h3>
+   </div>
+   <div class="col-md-12">
+      <app-room-edit-modal #modal (onClose)="this.updateRooms()"></app-room-edit-modal>
+
+      <div class="row">
+         <div class="col-md-2">
+            <label>№ from <br><input [(ngModel)]="this.filter.n_from" type="text" class="form-control"></label>
+         </div>
+         <div class="col-md-2">
+            <label>№ to <br><input [(ngModel)]="this.filter.n_to" type="text" class="form-control"></label>
+         </div>
+         <div class="col-md-3">
+            <label>
+               {{'field.type' | translate}}
+               <select [(ngModel)]="this.filter.type_id" class="form-control">
+                  <option value="">All</option>
+                  <option *ngFor="let t of this.types" value="{{t['_id']}}">{{t['name'] | multilang}}</option>
+               </select>
+            </label>
+         </div>
+         <div class="col-md-5 pt-4">
+            <button class="btn btn-primary float-right" (click)="this.updateRooms()">{{'button.filter' | translate}}</button>
+         </div>
+      </div>
+
+      <div class="row mb-1">
+         <div class="col-md-12">
+            <button type="button" class="btn btn-outline-secondary" (click)="this.showCreateModal()">{{'rooms.add-new-room' | translate}}</button>
+         </div>
+      </div>
+
+      <table class="table">
+         <thead>
+            <tr>
+               <th>{{'field.number' | translate}}</th>
+               <th>{{'field.type' | translate}}</th>
+               <th></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let room of this.data">
+               <td>{{room['number']}}</td>
+               <td>{{this.typesObject[room['type_id']] | multilang}}</td>
+               <td>
+                  <button type="button" class="btn btn-outline-primary" (click)="this.showEditModal(room)">{{'button.edit' | translate}}</button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>

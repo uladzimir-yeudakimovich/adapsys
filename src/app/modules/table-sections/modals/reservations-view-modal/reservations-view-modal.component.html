@@ -1,0 +1,76 @@
+<ng-template #content let-c="close" let-d="dismiss">
+   <div class="modal-body">
+      <div class="roomInfo">Room status: {{this.roomStatus}}</div>
+      <ngb-tabset>
+        <ngb-tab title="Order">
+          <ng-template ngbTabContent>
+            <table class="mt-2 table table-form-data">
+               <tr *ngFor="let data of this.request['readable_form_data']">
+                  <td>{{data['name']}}</td>
+                  <td>{{data['value']}}</td>
+               </tr>
+            </table>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="History">
+          <ng-template ngbTabContent>
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th colspan="3">Changes history (date, status, message)</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let status of this.request['status_changes']">
+                     <td>{{status['date'] | date}}</td>
+                     <td>{{status['status']}}</td>
+                     <td>{{status['message']}}</td>
+                  </tr>
+               </tbody>
+            </table>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+      <div *ngIf="this.request['positions'].length > 0">
+         <h4>Positions</h4>
+         <table class="table">
+            <tbody>
+               <tr>
+                  <th>Item</th>
+                  <th>Price</th>
+                  <th>Count</th>
+               </tr>
+               <tr *ngFor="let pos of this.request['positions']">
+                  <td>
+                     <span *ngFor="let cat of pos['categories_chain']">{{cat | multilang}}</span> &gt; {{pos['name'] | multilang}}</td>
+                  <td>{{pos['price']}}</td>
+                  <td>{{pos['amount']}}</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+            <label>
+               Message:
+               <input type="text" class="form-control" [(ngModel)]="this.model.message">
+            </label>
+         </div>
+         <div class="col-md-4">
+            <label>
+               Status:
+               <select name="status" [(ngModel)]="this.model.status" class="form-control">
+                  <option value="New" selected="selected">New</option>
+                  <option value="Accepted">Accepted</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Rejected">Rejected</option>
+               </select>
+            </label>
+         </div>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="save(c)">{{'button.update' | translate}}</button>
+      <button type="button" class="btn btn-light" (click)="c()" data-dismiss="modal">{{'button.close' | translate}}</button>
+   </div>
+</ng-template>

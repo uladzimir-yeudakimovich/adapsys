@@ -1,0 +1,20 @@
+<div class="row mt-2 mb-2">
+	<div class="col-md-12">
+		<h3>{{'section.guests' | translate}}</h3>
+	</div>
+	<div class="col-md-12">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/guests/list" routerLinkActive="active">{{'guests.guests' | translate}}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/guests/types" routerLinkActive="active">{{'guests.guests-types' | translate}}</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/guests/referrals" routerLinkActive="active">{{'guests.guests-referrals' | translate}}</a>
+			</li>
+		</ul>
+
+		<router-outlet></router-outlet>
+	</div>
+</div>
